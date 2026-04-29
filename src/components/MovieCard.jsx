@@ -1,21 +1,22 @@
 import React from "react";
 
-function MovieCard({ movie }) {
+function MovieCard({ movie,onSelect }) {
   return (
- <div className="flex gap-4 bg-[#111827] p-4 rounded-lg mb-6">
+ <div onClick={()=>onSelect(movie)} className="flex  flex-col gap-2 bg-[#3F3737] p-4 rounded-lg mb-6 h-72">
   <img 
     src={movie.image}
     alt={movie.title}
-    className="w-24 h-32 object-cover rounded-md"
+    className="w-28 h-32 object-cover rounded-md"
   />
 
   <div className="p-4">
-    <h3 className="text-lg font-bold mt-2">{movie.title}</h3>
+    <h3 className="text-lg text-white font-bold mt-2">{movie.title}</h3>
     <p className="text-gray-400">{movie.genre}</p>
     <p className="text-yellow-400">
       {"⭐".repeat(movie.rating)}
     </p>
   </div>
+  
 </div>
   );
 }

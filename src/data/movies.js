@@ -2,7 +2,7 @@ export const movies = [
   { title: "Inception",
      image: "/inception.jpg",
      genre: "Sci-fi",
-      rating: 5 },
+      rating: 2 },
   {
     title: "Interstellar",
     image: "/Interstellar.jpg",
@@ -13,6 +13,6 @@ export const movies = [
     title: "The Dark",
     image: "/the-dark.jpg",
     genre: "Sci-fi",
-    rating: 3,
+    rating: 4,
   },
 ];
