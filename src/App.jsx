@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import FilterBar from "./components/FilterBar";
 import AddMovieModal from "./components/AddMovieModal";
+import TopMovies from "./components/TopMovies";
 
 function App() {
 const[showModal,setShowModal]=useState(false)
@@ -38,14 +39,16 @@ const filtredMovies=allMovies.filter((movie)=>{
   />
 )}
       <HeroSection movie={TopMovie}/>
-       <FilterBar
+      
+       
+      <TopMovies movies={movies} />
+      <FilterBar
       genre={genre}
       setGenre={setGenre}
       minRating={minRating}
       setMinRating={setMinRating}
       />
       <MovieList movies={filtredMovies} />
-     
     </div>
   );
 }
