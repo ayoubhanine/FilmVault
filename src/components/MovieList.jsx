@@ -2,11 +2,6 @@ import React from "react";
 import MovieCard from "./MovieCard";
 
 function MovieList({ movies, onSelect }) {
-
-  // const top3Movies = [...movies]
-  //   .sort((a, b) => b.rating - a.rating)
-  //   .slice(0, 3);
-
   return (
     <div className="bg-[#111827] p-6">
 
