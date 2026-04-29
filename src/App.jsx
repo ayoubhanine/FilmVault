@@ -4,11 +4,19 @@ import { movies } from "./data/movies";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import FilterBar from "./components/FilterBar";
+import AddMovieModal from "./components/AddMovieModal";
 
 function App() {
+const[showModal,setShowModal]=useState(false)
+const[allMovies,setAllMovies]=useState(movies)
+
+const handleAddMovie = (newMovie) => {
+  setAllMovies((prev) => [...prev, newMovie]);
+};
+
   const [genre,setGenre]=useState("all")
   const[minRating,setMinRating]=useState(0)
-const filtredMovies=movies.filter((movie)=>{
+const filtredMovies=allMovies.filter((movie)=>{
    const matcheGenre=genre==="all"||movie.genre===genre
    const  matchRating=movie.rating>=minRating
    return matcheGenre && matchRating
@@ -16,20 +24,28 @@ const filtredMovies=movies.filter((movie)=>{
   }
 )
 
-  const TopMovie=movies.reduce((max,movie)=>
+  const TopMovie=allMovies.reduce((max,movie)=>
   movie.rating>max.rating?movie:max);
   return (
     <div >
-      <Navbar></Navbar>
+      <Navbar  
+      onAddClick={() => setShowModal(true)}
+      />
+      {showModal && (
+  <AddMovieModal
+    onClose={() => setShowModal(false)}
+    onAdd={handleAddMovie}
+  />
+)}
       <HeroSection movie={TopMovie}/>
-      
-      <MovieList movies={filtredMovies} />
-      <FilterBar
+       <FilterBar
       genre={genre}
       setGenre={setGenre}
       minRating={minRating}
       setMinRating={setMinRating}
       />
+      <MovieList movies={filtredMovies} />
+     
     </div>
   );
 }
