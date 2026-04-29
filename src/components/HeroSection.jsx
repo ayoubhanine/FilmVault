@@ -25,7 +25,7 @@ function HeroSection({ movie }) {
         </p>
 
         <p className="text-yellow-400 font-semibold mb-6">
-                {"⭐".repeat(movie.rating)}
+                ⭐ {movie.rating}/5
         </p>
 
         <div className="flex gap-3">

@@ -15,4 +15,10 @@ export const movies = [
     genre: "Sci-fi",
     rating: 4,
   },
+  {
+    title: "Matrix",
+    image: "/matrix.jpg",
+    genre: "Sci-fi",
+    rating: 5,
+  },
 ];
