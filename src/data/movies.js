@@ -1,24 +1,24 @@
 export const movies = [
   { title: "Inception",
      image: "/inception.jpg",
-     genre: "Sci-fi",
-      rating: 2 },
+     genre: "Sci-Fi",
+      rating: 4 },
   {
     title: "Interstellar",
     image: "/Interstellar.jpg",
-    genre: "Sci-fi",
+    genre: "Sci-Fi",
     rating: 4,
   },
   {
     title: "The Dark",
     image: "/the-dark.jpg",
-    genre: "Sci-fi",
+    genre: "Sci-Fi",
     rating: 4,
   },
   {
     title: "Matrix",
     image: "/matrix.jpg",
-    genre: "Sci-fi",
+    genre: "Action",
     rating: 5,
   },
 ];
