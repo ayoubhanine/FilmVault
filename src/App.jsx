@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MovieList from "./components/MovieList";
 import { movies } from "./data/movies";
 import Navbar from "./components/Navbar";
@@ -9,7 +9,14 @@ import TopMovies from "./components/TopMovies";
 
 function App() {
 const[showModal,setShowModal]=useState(false)
-const[allMovies,setAllMovies]=useState(movies)
+const[allMovies,setAllMovies]=useState(()=>{
+  const saved=localStorage.getItem("movies")
+  return saved?JSON.parse(saved):movies
+})
+
+useEffect(()=>{
+  localStorage.setItem("movies",JSON.stringify(allMovies))
+},[allMovies])
 
 const handleAddMovie = (newMovie) => {
   setAllMovies((prev) => [...prev, newMovie]);
@@ -25,8 +32,12 @@ const filtredMovies=allMovies.filter((movie)=>{
   }
 )
 
-  const TopMovie=allMovies.reduce((max,movie)=>
-  movie.rating>max.rating?movie:max);
+ const TopMovie =
+  allMovies.length > 0
+    ? allMovies.reduce((max, movie) =>
+        movie.rating > max.rating ? movie : max
+      )
+    : null;
   return (
     <div >
       <Navbar  
@@ -41,7 +52,7 @@ const filtredMovies=allMovies.filter((movie)=>{
       <HeroSection movie={TopMovie}/>
       
        
-      <TopMovies movies={movies} />
+      <TopMovies movies={allMovies} />
       <FilterBar
       genre={genre}
       setGenre={setGenre}
