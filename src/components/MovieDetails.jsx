@@ -1,4 +1,4 @@
-function MovieDetail({ movie, onClose }) {
+function MovieDetail({ movie, onClose,onDelete }) {
   if (!movie) return null;
   console.log(movie);
 
@@ -49,6 +49,10 @@ function MovieDetail({ movie, onClose }) {
           >
             Close
           </button>
+        <button
+        onClick={()=>onDelete(movie.id)}
+        className="bg-red-600 px-4 py-2 rounded mt-2"
+        > Supprimer</button>
         </div>
       </div>
     </div>

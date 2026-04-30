@@ -24,7 +24,7 @@ export const movies = [
   {
     
     title: "Interstellar",
-    year: 2014,
+    Year: 2014,
     genre: "Sci-Fi",
     director: "Christopher Nolan",
     actors: [

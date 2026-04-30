@@ -54,6 +54,28 @@ const[form,setForm]=useState({
             onChange={handleChange}
             className="p-2 rounded bg-gray-800 text-white"
           />
+          <input 
+          name="director"
+          placeholder="director"
+          onChange={handleChange}
+          className="p-2 rounded bg-gray-800 text-white"
+          
+          />
+          <input 
+          name="actors"
+          placeholder="Actors"
+          onChange={handleChange}
+          className="p-2 rounded bg-gray-800 text-white"
+          
+          />
+           <input 
+          name="description"
+          placeholder="description"
+          onChange={handleChange}
+          className="p-2 rounded bg-gray-800 text-white"
+          
+          />
+          
 
           <input
             name="rating"

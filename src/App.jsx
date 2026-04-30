@@ -54,6 +54,11 @@ const filtredMovies=allMovies.filter((movie)=>{
         movie.rating > max.rating ? movie : max
       )
     : null;
+
+  const handleDeleteMovie=(id)=>{
+    setAllMovies((prev)=>prev.filter((movie)=>movie.id!==id))
+    setSelectedMovies(null)
+  }
   return (
     <div >
       <Navbar  
@@ -82,6 +87,7 @@ const filtredMovies=allMovies.filter((movie)=>{
   <MovieDetail
     movie={selectedMovies}
     onClose={() => setSelectedMovies(null)}
+    onDelete={handleDeleteMovie}
   />
 )}
     </div>
