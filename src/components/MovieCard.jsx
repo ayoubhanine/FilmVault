@@ -3,7 +3,7 @@ import React from "react";
 function MovieCard({ movie, onSelect }) {
   return (
     <div
-      onClick={() => onSelect?.(movie)}
+      onClick={() => onSelect(movie)}
       className="cursor-pointer bg-[#3F3737] rounded-xl overflow-hidden shadow-lg hover:scale-105 transition duration-300"
     >
       <img

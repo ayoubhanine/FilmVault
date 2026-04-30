@@ -6,8 +6,12 @@ import HeroSection from "./components/HeroSection";
 import FilterBar from "./components/FilterBar";
 import AddMovieModal from "./components/AddMovieModal";
 import TopMovies from "./components/TopMovies";
+import MovieDetail from "./components/MovieDetails";
 
 function App() {
+const [selectedMovies,setSelectedMovies]=useState(null)
+
+
 const[showModal,setShowModal]=useState(false)
 const[allMovies,setAllMovies]=useState(()=>{
   const saved=localStorage.getItem("movies")
@@ -18,8 +22,20 @@ useEffect(()=>{
   localStorage.setItem("movies",JSON.stringify(allMovies))
 },[allMovies])
 
+// const handleAddMovie = (newMovie) => {
+//   setAllMovies((prev) => [...prev, newMovie]);
+// };
 const handleAddMovie = (newMovie) => {
-  setAllMovies((prev) => [...prev, newMovie]);
+  const completeMovie = {
+    id: Date.now(),
+    // director: newMovie.director || "Unknown",
+    // actors: newMovie.actors || "Unknown",
+    // description: newMovie.description || "No description",
+    // trailer: newMovie.trailer || "",
+    ...newMovie
+  };
+
+  setAllMovies((prev) => [...prev, completeMovie]);
 };
 
   const [genre,setGenre]=useState("all")
@@ -59,7 +75,15 @@ const filtredMovies=allMovies.filter((movie)=>{
       minRating={minRating}
       setMinRating={setMinRating}
       />
-      <MovieList movies={filtredMovies} />
+      <MovieList movies={filtredMovies}
+      onSelect={setSelectedMovies}
+      />
+      {selectedMovies && (
+  <MovieDetail
+    movie={selectedMovies}
+    onClose={() => setSelectedMovies(null)}
+  />
+)}
     </div>
   );
 }

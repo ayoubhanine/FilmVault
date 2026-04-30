@@ -4,6 +4,7 @@ function AddMovieModal({onClose,onAdd}){
 const[form,setForm]=useState({
     title:"",
     genre:"",
+    Year:"",
     rating:1,
     image:""
 })
@@ -17,6 +18,7 @@ const[form,setForm]=useState({
         id:Date.now(),
         ...form,
         rating:Number(form.rating)
+
     };
     onAdd(newMovie)
     onClose()
@@ -38,6 +40,12 @@ const[form,setForm]=useState({
             placeholder="Titre"
             onChange={handleChange}
             className="p-2 rounded bg-gray-800 text-white"
+          />
+          <input type="text"
+          name="Year"
+          placeholder="Year"
+          onChange={handleChange}
+           className="p-2 rounded bg-gray-800 text-white"
           />
 
           <input

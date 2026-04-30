@@ -21,4 +21,23 @@ export const movies = [
     genre: "Action",
     rating: 5,
   },
+  {
+    
+    title: "Interstellar",
+    year: 2014,
+    genre: "Sci-Fi",
+    director: "Christopher Nolan",
+    actors: [
+      "Matthew McConaughey",
+      "Anne Hathaway",
+      "Jessica Chastain",
+      "Michael Caine",
+    ],
+    description:
+      "A team of explorers travel through a wormhole in space to ensure humanity's survival. Breathtaking visuals and an emotional story about love transcending dimensions.",
+    image:
+      "/Interstellar.jpg",
+
+    rating: 5,
+  },
 ];
