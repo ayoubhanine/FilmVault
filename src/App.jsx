@@ -59,6 +59,14 @@ const filtredMovies=allMovies.filter((movie)=>{
     setAllMovies((prev)=>prev.filter((movie)=>movie.id!==id))
     setSelectedMovies(null)
   }
+
+  const handleUpdateMovie = (updatedMovie) => {
+  setAllMovies((prev) =>
+    prev.map((movie) =>
+      movie.id === updatedMovie.id ? updatedMovie : movie
+    )
+  );
+};
   return (
     <div >
       <Navbar  
@@ -88,6 +96,7 @@ const filtredMovies=allMovies.filter((movie)=>{
     movie={selectedMovies}
     onClose={() => setSelectedMovies(null)}
     onDelete={handleDeleteMovie}
+    onUpdate={handleUpdateMovie}
   />
 )}
     </div>

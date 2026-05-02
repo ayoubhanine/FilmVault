@@ -1,5 +1,13 @@
-function MovieDetail({ movie, onClose, onDelete }) {
+
+import { useState,useEffect } from "react";
+function MovieDetail({ movie, onClose, onDelete,onUpdate }) {
   if (!movie) return null;
+  const [isEditing, setIsEditing] = useState(false);
+  const [formData, setFormData] = useState(movie);
+
+  useEffect(() => {
+    setFormData(movie);
+  }, [movie]);
 
   return (
     <div
@@ -18,6 +26,45 @@ function MovieDetail({ movie, onClose, onDelete }) {
 
         {/* CONTENT (SCROLLABLE) */}
         <div className="p-6 space-y-3 overflow-y-auto flex-1">
+            {isEditing && (
+  <div className="flex flex-col gap-2 mt-4">
+
+    <input
+      value={formData.title}
+      onChange={(e) =>
+        setFormData({ ...formData, title: e.target.value })
+      }
+      className="p-2 text-white  bg-blue-400"
+    />
+
+    <input
+      value={formData.Year}
+      onChange={(e) =>
+        setFormData({ ...formData, Year: e.target.value })
+      }
+    className="p-2 text-white  bg-blue-400"
+    />
+
+    <input
+      value={formData.genre}
+      onChange={(e) =>
+        setFormData({ ...formData, genre: e.target.value })
+      }
+      className="p-2 text-white bg-blue-400"
+    />
+
+    <button
+      onClick={() => {
+        onUpdate(formData);
+        setIsEditing(false);
+      }}
+      className="bg-green-600 px-4 py-2 rounded"
+    >
+      Sauvegarder
+    </button>
+
+  </div>
+)}
           <h2 className="text-2xl font-bold text-amber-300">
             {movie.title}
           </h2>
@@ -71,6 +118,13 @@ function MovieDetail({ movie, onClose, onDelete }) {
           >
             Supprimer
           </button>
+          <button
+             onClick={() => setIsEditing(true)}
+             className="bg-blue-600 px-4 py-2 rounded "
+          >
+               Modifier
+              </button>
+            
         </div>
       </div>
     </div>
