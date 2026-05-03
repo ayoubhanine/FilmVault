@@ -78,10 +78,10 @@ const filtredMovies=allMovies.filter((movie)=>{
     onAdd={handleAddMovie}
   />
 )}
-      <HeroSection movie={TopMovie}/>
+      <HeroSection movie={TopMovie} onSelect={setSelectedMovies}/>
       
        
-      <TopMovies movies={allMovies} />
+      <TopMovies movies={allMovies}  />
       <FilterBar
       genre={genre}
       setGenre={setGenre}

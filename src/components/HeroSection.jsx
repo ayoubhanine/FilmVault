@@ -1,4 +1,4 @@
-function HeroSection({ movie }) {
+function HeroSection({ movie,onSelect }) {
   if (!movie) return null;
 
   return (
@@ -29,13 +29,13 @@ function HeroSection({ movie }) {
         </p>
 
         <div className="flex gap-3">
-          <button className="bg-red-600 hover:bg-red-700 px-5 py-2 rounded-lg transition">
+          <button 
+       onClick={() => onSelect(movie)}
+          className="bg-red-600 hover:bg-red-700 px-5 py-2 rounded-lg transition">
             Voir détails
           </button>
 
-          <button className="bg-white/20 hover:bg-white/30 px-5 py-2 rounded-lg transition">
-            Ajouter aux favoris
-          </button>
+          
         </div>
 
       </div>
